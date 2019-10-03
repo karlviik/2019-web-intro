@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+  font-size: 20px;
+}
+
+ul { /* lists */
+  list-style-type: none; /* removes bullet points from list */
+  margin: 0; /* hits ceiling above */
+  padding: 0; /* hits walls on sides */
+  overflow: hidden; /* what happens on text fill */
+  background-color: #333; /* background colour */
+  top: 50; /* stay right on top */
+}
+
+li { /* list elements */
+  float: left; /* order them to be on same horisontal line */
+}
+
+li a { /* hyperlinks as list elements */
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #555;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+table {
+  width:100%;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+table#t01 tr:nth-child(even) {
+  background-color: #eee;
+}
+
+table#t01 tr:nth-child(odd) {
+ background-color: #fff;
+}
+
+table#t01 th {
+  background-color: blue;
+  color: white;
+}
+
+</style>
+</head>
+<body style="background-color:#66ccff;">
+
+<ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="self.html">Minust</a></li>
+  <li><a class="active" href="tiredness.html">Väsimus</a></li>
+  <li><a href="quote.html">Ütlus</a></li>
+  <li><a href="animals.html">Loomad</a></li>
+</ul>
+
+<h1>Kui väsinud?</h1>
+
+<table id="t01">
+  <tr>
+    <th>Küsimus</th>
+    <th>Vastus</th> 
+    <th>Numbriline vastus</th>
+  </tr>
+  <tr>
+    <td>Kui väsinud oled praegu?</td>
+    <td>Ehhhh</td>
+    <td>20%</td>
+  </tr>
+  <tr>
+    <td>Aga nüüd?</td>
+    <td>Mhm...</td>
+    <td>21%</td>
+  </tr>
+  <tr>
+    <td>Aga nüüd kui väsinud oled?</td>
+    <td>No mis sa pärid siin nii palju!</td>
+    <td>50%</td>
+  </tr>
+  <tr>
+    <td>Aga... Nüüüüüüd?</td>
+    <td>...</td>
+    <td>55%</td>
+  </tr>
+  <tr>
+    <td>Aga... Nüüüüüüüüüüüüüüüüüüüüüüüüd?</td>
+    <td>...</td>
+    <td>80%</td>
+  </tr>
+  <tr>
+    <td>Aga... Nüüüüüü</td>
+    <td>Kui sa veel korra küsid, läheb asi katki. Vaata pigem kunsti.</td>
+    <td>100%</td>
+  </tr>
+</table>
+<p style="text-align:center;"><img src="images/art.jpg" style="width:75%;height:75%;"></p>
+</body>
+</html>

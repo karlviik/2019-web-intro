@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+  font-size: 20px;
+}
+
+ul { /* lists */
+  list-style-type: none; /* removes bullet points from list */
+  margin: 0; /* hits ceiling above */
+  padding: 0; /* hits walls on sides */
+  overflow: hidden; /* what happens on text fill */
+  background-color: #333; /* background colour */
+  top: 50; /* stay right on top */
+}
+
+li { /* list elements */
+  float: left; /* order them to be on same horisontal line */
+}
+
+li a { /* hyperlinks as list elements */
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #555;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+img {
+    image-orientation: from-image;
+}
+</style>
+</head>
+<body style="background-color:#66ccff;">
+
+<ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="self.html">Minust</a></li>
+  <li><a href="tiredness.html">Väsimus</a></li>
+  <li><a href="quote.html">Ütlus</a></li>
+  <li><a class="active" href="animals.html">Loomad</a></li>
+</ul>
+
+<h1>Ma olen näinud mitut looma enda elus</h1>
+<p style="text-align:center;"><img src="images/animal1.jpg" style="width:75%;height:75%;"></p>
+<p style="text-align:center;"><img src="images/animal2.jpg" style="width:75%;height:75%;"></p>
+<p style="text-align:center;"><img src="images/animal3.jpg" style="width:75%;height:75%;"></p>
+</body>
+</html>
