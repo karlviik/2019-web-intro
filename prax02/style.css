@@ -1,0 +1,137 @@
+body {
+    text-align: center;
+    background-color: #3a4146;
+    color: white;
+    font-family: "Calibri L", serif;
+    font-size: 15px
+}
+
+select {
+    font-size: 15px;
+    height: 20%;
+    margin: 4px;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    text-align: center;
+    text-align-last: center;
+    background-color: #656e73;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+select:hover {
+    background-color: #838c91;
+}
+
+button {
+    margin: 6px;
+}
+
+.gameOptions {
+    padding: 2px 10px;
+    display: inline-block;
+}
+
+.startGameButton {
+    background-color: #4c974c;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    padding: 10px 100px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.startGameButton:hover {
+    background-color: #65b865;
+}
+
+.play_area {
+    margin: 10px;
+    align-content: center;
+    align-items: center;
+}
+
+.game_stats {
+    width: 75%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.game_stat {
+    alignment: center;
+    display: inline-block;
+    margin: 0 15%;
+    font-size: 25px;
+}
+
+.score {
+    font-size: 35px;
+}
+
+.time {
+    font-size: 35px;
+}
+
+.card_board {
+    alignment: center;
+    width: 83%;
+    min-height: 200px;
+    max-width: 1200px;
+    border: 2px solid white;
+    margin: 10px auto;
+}
+
+.card {
+    width: 125px;
+    height: 181px;
+    display: inline-block;
+    background: url("card_sprites.gif") bottom left;
+}
+
+.H { background-position-y: 0; }
+.D { background-position-y: -181px; }
+.C { background-position-y: -362px; }
+.S { background-position-y: -543px; }
+
+.r-2 { background-position-x: 0; }
+.r-3 { background-position-x: -125px; }
+.r-4 { background-position-x: -250px; }
+.r-5 { background-position-x: -375px; }
+.r-6 { background-position-x: -500px; }
+.r-7 { background-position-x: -625px; }
+.r-8 { background-position-x: -750px; }
+.r-9 { background-position-x: -875px; }
+.r-10 { background-position-x: -1000px; }
+.r-J { background-position-x: -1125px; }
+.r-Q { background-position-x: -1250px; }
+.r-K { background-position-x: -1375px; }
+.r-A { background-position-x: -1500px; }
+
+.flipped { background-position: bottom left; }
+.hidden { background-position: bottom right; }
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+    width:20%;
+    margin: 0 auto;
+    display:table;
+    border:1px solid #ccc;
+}
+
+th, td {
+    padding: 8px;
+}
+
+tr:nth-child(odd){
+    background-color: #6a6a6a
+}
+
+th {
+    background-color: orangered;
+    color: white;
+}
+
+

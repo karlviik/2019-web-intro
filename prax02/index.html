@@ -2,12 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mäng</title>
-    <script async src="./index.js"></script>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Card game</title>
+    <script async src="app.js"></script>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <h1>kuhkjkhhu</h1>
-    <h4 id='date'></h4>
+    <h1>Card game!</h1>
+    <div>
+        <div class="gameOptions">
+            <label for="selectSize">Size: </label>
+            <select id="selectSize">
+                <option value="6">6</option>
+                <option value="16">16</option>
+                <option value="26">26</option>
+                <option value="52">52</option>
+            </select>
+        </div>
+        <div class="gameOptions">
+            <label for="selectType">Type: </label>
+            <select id="selectType">
+                <option value="1">Kaardi järk peab olema sama</option>
+                <option value="2">Kaardi järk ja värv peab olema sama</option>
+            </select>
+        </div>
+    </div>
+    <div>
+        <button type="button" id="start_button" class="startGameButton">Alusta uut mängu</button>
+    </div>
+    <div class="play_area">
+        <div class="game_stats">
+            <div class="game_stat">
+                <span>SCORE: </span>
+                <div class="score" id="score"><b>100</b></div>
+            </div>
+            <div class="game_stat">
+                <span>TIME: </span>
+                <div class="time" id="time"><b>0</b></div>
+            </div>
+        </div>
+        <div id="card_board" class="card_board">
+
+        </div>
+    </div>
+    <div class="score_area">
+        <h2>YOUR SCORES: </h2>
+
+        <table class="score_table" id="score_table">
+            <thead>
+            <tr class="score_table_header">
+                <th>Points</th>
+                <th>Time</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>No scores</td>
+                <td>Yet...</td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>
