@@ -21,13 +21,13 @@
         <div class="gameOptions">
             <label for="selectType">Type: </label>
             <select id="selectType">
-                <option value="1">Kaardi järk peab olema sama</option>
-                <option value="2">Kaardi järk ja värv peab olema sama</option>
+                <option value="1">Card rank has to match</option>
+                <option value="2">Card rank and suit colour have to match</option>
             </select>
         </div>
     </div>
     <div>
-        <button type="button" id="start_button" class="startGameButton">Alusta uut mängu</button>
+        <button type="button" id="start_button" class="startGameButton">Start new game</button>
     </div>
     <div class="play_area">
         <div class="game_stats">
@@ -50,13 +50,15 @@
         <table class="score_table" id="score_table">
             <thead>
             <tr class="score_table_header">
+                <th>Game no.</th>
                 <th>Points</th>
                 <th>Time</th>
             </tr>
             </thead>
             <tr>
-                <td>No scores</td>
-                <td>Yet...</td>
+                <td>No</td>
+                <td>scores</td>
+                <td>yet...</td>
             </tr>
         </table>
     </div>

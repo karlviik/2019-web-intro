@@ -13,7 +13,7 @@ let checkingCards = [];
 let game_in_progress = false;
 let results = [];
 let scoreBoard = gid("score_table");
-
+let game_counter = 1;
 let startButton = gid("start_button");
 startButton.addEventListener("click", startGame);
 
@@ -89,7 +89,9 @@ function endGame(interrupt) {
     if (interrupt) {
         return;
     }
-    results.push({score: score, time: time});
+    results.push({game_number: game_counter, score: score, time: time});
+    alert("Neat!\nYour score was " + score + " points.\nYour time was " + time + " seconds.");
+    game_counter++;
     updateScoreBoard();
 }
 
@@ -97,15 +99,15 @@ function updateScoreBoard() {
     while (scoreBoard.rows.length > 1) {
         scoreBoard.deleteRow(1);
     }
+    results.sort(function(a, b) {return b.score - a.score});
     results.forEach(element => {
-        let newRow = document.createElement("tr");
-        let firstCol = document.createElement("td");
-        let secondCol = document.createElement("td");
-        firstCol.innerText = element.score;
-        secondCol.innerText = element.time;
-        newRow.appendChild(firstCol);
-        newRow.appendChild(secondCol);
-        scoreBoard.appendChild(newRow);
+        let row = scoreBoard.insertRow(-1);
+        let col1 = row.insertCell(-1);
+        let col2 = row.insertCell(-1);
+        let col3 = row.insertCell(-1);
+        col1.innerText = element.game_number;
+        col2.innerText = element.score;
+        col3.innerText = element.time;
     })
 }
 
@@ -120,6 +122,8 @@ function checkCards() {
     let card2_values = getCardData(card2);
     if (game_type === 1) {
         if (card1_values.rank === card2_values.rank) {
+            disableCard(card1);
+            disableCard(card2);
             setTimeout(function(){
                 hide(card1);
                 hide(card2);
@@ -135,6 +139,8 @@ function checkCards() {
             let suits2 = suits.slice(2);
             if (suits1.includes(card1_values.suit) && suits1.includes(card2_values.suit) ||
             suits2.includes(card1_values.suit) && suits2.includes(card2_values.suit)) {
+                disableCard(card1);
+                disableCard(card2);
                 setTimeout(function(){
                     hide(card1);
                     hide(card2);
@@ -149,11 +155,11 @@ function checkCards() {
     updateScore();
     removeCardFromCheckingCards(card1);
     removeCardFromCheckingCards(card2);
+    flippedCards.push(card1.id);
+    flippedCards.push(card2.id);
     setTimeout(function(){
         toggleFlip(card1);
         toggleFlip(card2);
-        flippedCards.push(card1.id);
-        flippedCards.push(card2.id);
     }, 1000);
 
 }
@@ -168,10 +174,13 @@ function toggleFlip(card) {
     card.classList.toggle("flipped");
 }
 
-function hide(card) {
-    card.classList.add("hidden");
+function disableCard(card) {
     card.removeEventListener("click", cardClick);
     removeCardFromCheckingCards(card);
+}
+
+function hide(card) {
+    card.classList.add("hidden");
 }
 
 function removeCardFromFlippedCards(card) {
@@ -191,9 +200,6 @@ function removeCardFromCheckingCards(card) {
     }
     return false;
 }
-
-
-
 
 /**
  * Shuffles array in place. ES6 version
