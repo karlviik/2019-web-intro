@@ -7,18 +7,24 @@ let timer_element = gid("time");
 let score, time, timer;
 let deck = []; // just json values
 let card_board = gid("card_board"); // actual elements
-let card_board_cards = [];
 let flippedCards = [];
 let checkingCards = [];
 let game_in_progress = false;
 let results = [];
 let scoreBoard = gid("score_table");
 let game_counter = 1;
-let startButton = gid("start_button");
-startButton.addEventListener("click", startGame);
+gid("start_button").addEventListener("click", startGame);
+let type_selector = gid("selectType");
+let size_selector = gid("selectSize");
+type_selector.addEventListener("change", optiontoggle);
 
-let size_select = gid("selectSize");
-let type_select = gid("selectType");
+
+function optiontoggle() {
+    size_selector.options[3].hidden = type_selector.value === "1";
+    if (type_selector.value === "1" && size_selector.selectedIndex === 3) {
+        size_selector.selectedIndex = 0;
+    }
+}
 
 // startGame();
 function startGame() {
@@ -34,12 +40,12 @@ function startGame() {
         score_element.innerText = score;
         timer_element.innerText = time;
     }, 1000);
-    game_type = Number(type_select.options[type_select.selectedIndex].value);
-    game_size = Number(size_select.options[size_select.selectedIndex].value);
+
+    game_type = Number(gid("selectType").value);
+    game_size = Number(gid("selectSize").value);
     deck = [];
     flippedCards = [];
     checkingCards = [];
-    // todo
     deck = generateDeck(game_type, game_size);
     drawDeck();
 
@@ -73,6 +79,7 @@ function cardClick(event) {
     }
     if (checkingCards.length === 2) {
         checkCards();
+        // checkCardsRedux(card);
     }
     if (flippedCards.length === 0) {
         endGame(false);

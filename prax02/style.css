@@ -77,9 +77,9 @@ button {
 .card_board {
     alignment: center;
     width: 83%;
-    min-height: 200px;
-    max-width: 1200px;
-    border: 2px solid white;
+    min-height: 180px;
+    max-width: 1250px;
+    min-width: 250px;
     margin: 10px auto;
 }
 

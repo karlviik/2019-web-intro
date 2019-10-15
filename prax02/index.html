@@ -10,19 +10,19 @@
     <h1>Card game!</h1>
     <div>
         <div class="gameOptions">
+            <label for="selectType">Type: </label>
+            <select id="selectType">
+                <option value="1">Card rank has to match</option>
+                <option value="2">Card rank and suit colour have to match</option>
+            </select>
+        </div>
+        <div class="gameOptions">
             <label for="selectSize">Size: </label>
             <select id="selectSize">
                 <option value="6">6</option>
                 <option value="16">16</option>
                 <option value="26">26</option>
-                <option value="52">52</option>
-            </select>
-        </div>
-        <div class="gameOptions">
-            <label for="selectType">Type: </label>
-            <select id="selectType">
-                <option value="1">Card rank has to match</option>
-                <option value="2">Card rank and suit colour have to match</option>
+                <option hidden value="52">52</option>
             </select>
         </div>
     </div>
