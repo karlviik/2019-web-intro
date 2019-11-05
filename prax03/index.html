@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Card game</title>
+    <script async src="app.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<!--    <form method="get" action="./../cgi-bin/prax3/hw.py">-->
+<!--        Name: <input type="text" name="name">-->
+<!--        <input type="submit" value="Submit">-->
+<!--    </form>-->
+    <h1>Card game!</h1>
+    <div>
+        <div class="gameOptions">
+            <label for="selectType">Type: </label>
+            <select id="selectType">
+                <option value="1">Card rank has to match</option>
+                <option value="2">Card rank and suit colour have to match</option>
+            </select>
+        </div>
+        <div class="gameOptions">
+            <label for="selectSize">Size: </label>
+            <select id="selectSize">
+                <option value="6">6</option>
+                <option value="16">16</option>
+                <option value="26">26</option>
+                <option hidden value="52">52</option>
+            </select>
+        </div>
+        <div class="gameOptions">
+            <label for="selectPlayers">Players: </label>
+            <select id="selectPlayers">
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+        </div>
+    </div>
+    <div>
+        <button type="button" id="start_button" class="startGameButton">Start new game</button>
+        <button type="button" id="join_button" class="joinGameButton">Join a game</button>
+    </div>
+    <div class="play_area">
+        <div class="game_stats">
+            <div class="game_stat">
+                <span>SCORE: </span>
+                <div class="score" id="score">0</div>
+            </div>
+            <div class="game_stat">
+                <span>TIME: </span>
+                <div class="time" id="time">0</div>
+            </div>
+        </div>
+        <div id="card_board" class="card_board">
+
+        </div>
+    </div>
+    <div>
+        <button type="button" id="score_button" class="scoreListButton">Open score page</button>
+    </div>
+    <div class="declared_games">
+        <h2>DECLARED GAMES: </h2>
+        <table class="declared_games_table" id="declared_games_table">
+            <thead>
+            <tr class="declared_games_table_header">
+                <th>Game code</th>
+                <th>By whom</th>
+                <th>Type</th>
+                <th>Size</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</body>
+</html>
