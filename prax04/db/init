@@ -1,0 +1,17 @@
+CREATE SCHEMA pr;
+
+USE pr;
+
+CREATE TABLE user(id integer key auto_increment, username varchar(33), name varchar(33), password varchar(65), email varchar(257), bio text, image varchar(65));
+
+CREATE TABLE likes(id integer key auto_increment, user_id integer, tweet_id integer);
+
+CREATE TABLE follows(id integer key auto_increment, target_user_id integer, stalker_user_id integer);
+
+CREATE TABLE tweets(id integer key auto_increment, time timestamp, retweet_id integer, user_id integer, message text);
+
+CREATE TABLE comments(id integer key auto_increment, time timestamp, tweet_id integer, user_id integer, comment text);
+
+
+
+
