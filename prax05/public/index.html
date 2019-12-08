@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" type="text/css" href="./style.css"/>
+</head>
+<body>
+<div class="container">
+	<h1>Tic tac toe</h1>
+	<div class="game">
+		<div class="row">
+			<div class="tile_container">
+				<div class="tile" id="0" onclick="move(0)">
+					...
+				</div>
+			</div>
+			<div class="tile_container">
+				<div class="tile" id="1" onclick="move(1)">
+					...
+				</div>
+			</div>
+			<div class="tile_container">
+				<div class="tile" id="2" onclick="move(2)">
+					...
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="tile_container">
+				<div class="tile" id="3" onclick="move(3)">
+					...
+				</div>
+			</div>
+			<div class="tile_container">
+				<div class="tile" id="4" onclick="move(4)">
+					...
+				</div>
+			</div>
+			<div class="tile_container">
+				<div class="tile" id="5" onclick="move(5)">
+					...
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="tile_container">
+				<div class="tile" id="6" onclick="move(6)">
+					...
+				</div>
+			</div>
+			<div class="tile_container">
+				<div class="tile" id="7" onclick="move(7)">
+					...
+				</div>
+			</div>
+			<div class="tile_container">
+				<div class="tile" id="8" onclick="move(8)">
+					...
+				</div>
+			</div>
+		</div>
+		<div class="start">
+			<button type="button" id="start" class="startButton">Start new game</button>
+		</div>
+	</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+<script>
+	document.getElementById("start").addEventListener("click", startGame);
+	let socket = io("http://dijkstra.cs.ttu.ee:7569");
+	let gameOver = false;
+	let me = null;
+	function startGame() {
+		gameOver = false;
+		me = "X";
+		socket.emit("start");
+	}
+	function move(cell) {
+		socket.emit("move", JSON.stringify({"cell": cell, "player": me}));
+	}
+	socket.on("you", function(data) {
+		me = data;
+	});
+	socket.on("state", function (data) {
+		console.log(data);
+		let jsonData = JSON.parse(data);
+		for (let i = 0; i < 9; i++) {
+			let y = Math.floor(i / 3);
+			let x = i % 3;
+			document.getElementById(i.toString()).innerText = jsonData.board[y][x] === 0 ? "" : jsonData.board[y][x];
+		}
+		if (!gameOver && jsonData.winner != null) {
+			gameOver = true;
+			alert("Player playing with " + jsonData.winner + " has won!");
+		}
+	})
+</script>
+</body>
+</html>
